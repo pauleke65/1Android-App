@@ -8,10 +8,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Fragment;
 import android.os.Bundle;
 
+
+import com.example.cardapplication.DatabaseModels.UserDao;
+
 import com.example.cardapplication.Fragments.AnalyticsFragment;
 import com.example.cardapplication.Fragments.HomeFragment;
 import com.example.cardapplication.Fragments.PaymentsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
+
 
 import java.util.Objects;
 
@@ -21,6 +30,12 @@ public class BottomNavPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav_page);
+
+
+
+        UserDao userDao = MainApp.getAppDatabase().userDao();
+        userDao.getAll();
+
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -62,4 +77,27 @@ public class BottomNavPage extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment, "homeTR").commit();
         return true;
     }
+
+
+    private void testIonRequest() {
+
+        JsonObject body = new JsonObject();
+
+        body.addProperty("username", "my username");
+        body.addProperty("password", "my password");
+
+
+        Ion.with(this)
+                .load("POST", "https://google.com")
+                .setJsonObjectBody(body)
+                .asJsonObject()
+                .withResponse()
+                .setCallback(new FutureCallback<Response<JsonObject>>() {
+                    @Override
+                    public void onCompleted(Exception e, Response<JsonObject> result) {
+
+                    }
+                });
+    }
+
 }
