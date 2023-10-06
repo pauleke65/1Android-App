@@ -48,26 +48,22 @@ Explain how to use your project, including code examples and demonstrations.
 ### Milestone 1: Authentication Module
 Develop the authentication module to handle user authentication and authorization
 
-Tasks:
-
-- Task 1: Implement user registration functionality
+[] Task 1: Implement user registration functionality
 Create the logic for user registration including validating input data and saving user details to the database
 
-- Task 2: Implement user login functionality
+[] Task 2: Implement user login functionality
 Create the logic for user login including validating credentials, generating JWT tokens, and returning them to the user
 
-- Task 3: Implement authorization middleware
+[] Task 3: Implement authorization middleware
 Create middleware to verify JWT tokens and restrict access to authenticated users
 
 ### Milestone 2: Order Management Module
 Develop the order management module to process and track orders
 
-Tasks:
-
-- Task 4: Implement order creation functionality
+[] Task 4: Implement order creation functionality
 Create the logic for creating new orders including validating the order details, assigning a delivery driver, and saving the order to the database
 
-- Task 5: Implement order tracking functionality
+[] Task 5: Implement order tracking functionality
 Create the logic for tracking the status of orders including updating the order status and notifying users of order updates
 
 ### Milestone 3: User Management Module
